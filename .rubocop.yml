@@ -64,3 +64,6 @@ RSpec/MultipleExpectations:
 
 RSpec/MultipleMemoizedHelpers:
   Max: 11
+
+Rails/FilePath:
+  Enabled: false

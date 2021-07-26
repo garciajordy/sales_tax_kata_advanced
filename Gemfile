@@ -28,10 +28,11 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '>= 3.26'
+  gem 'capybara'
   gem 'selenium-webdriver'
   gem 'database_cleaner-active_record'
   gem 'webdrivers'
+  gem 'rails-controller-testing'
 end
 
 gem 'rubocop-rails', require: false

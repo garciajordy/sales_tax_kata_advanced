@@ -34,5 +34,8 @@ group :test do
   gem 'webdrivers'
 end
 
+gem 'rubocop-rails', require: false
+gem 'rubocop-performance', require: false
+gem 'rubocop-rspec', require: false
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

@@ -1,5 +1,6 @@
 module FileReaderHelper
   def file_reader(file)
+    puts file.original_filename.split(".").first
     File.readlines(file).each do |line|
       line_item_constructor(line_constructor(line))
     end

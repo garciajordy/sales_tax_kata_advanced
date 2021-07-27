@@ -1,6 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe LineItem, type: :model do
+
+  describe "relationships" do
+    it { is_expected.to belong_to(:basket) }
+  end
+
   describe '#imported?' do
     it 'returns false when not imported' do
       item = described_class.new(quantity: 1, name: 'music CD', price: 14.99)

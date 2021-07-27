@@ -8,7 +8,7 @@ module FileReaderHelper
   def line_constructor(line)
     {
       quantity: line[0].to_i,
-      name: line.split(' at ')[0][2..-1],
+      name: line.split(' at ')[0][2..],
       price: line.split(' at ')[1].to_f
     }
   end

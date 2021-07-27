@@ -1,7 +1,11 @@
 class LineItem < ApplicationRecord
-  validates_presence_of :name, :quantity, :price
+  validates :name, :quantity, :price, presence: true
 
   def imported?
-    name.include?("imported")
+    name.include?('imported')
+  end
+
+  def output
+    "#{quantity} #{name}: #{price}"
   end
 end

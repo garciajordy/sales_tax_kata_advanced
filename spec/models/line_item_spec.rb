@@ -24,4 +24,10 @@ RSpec.describe LineItem, type: :model do
       expect(item.output).to match(output)
     end
   end
+
+  describe "#to_decimal" do
+    it "Should return 10.00 when num is 10" do
+      expect(LineItem.to_decimal(10)).to match("10.00")
+    end
+  end
 end

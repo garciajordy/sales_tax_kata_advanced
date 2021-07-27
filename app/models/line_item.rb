@@ -8,6 +8,10 @@ class LineItem < ApplicationRecord
   end
 
   def output
-    "#{quantity} #{name}: #{price}"
+    "#{quantity} #{name}: #{LineItem.to_decimal(price)}"
+  end
+
+  def self.to_decimal(num)
+    '%.2f' % num
   end
 end

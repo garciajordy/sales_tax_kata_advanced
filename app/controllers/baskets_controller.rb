@@ -4,7 +4,9 @@ class BasketsController < ApplicationController
 
   def index; end
 
-  def show; end
+  def show
+  @basket = Basket.find(params[:id])
+  end
 
   def new; end
 

@@ -12,11 +12,35 @@ RSpec.describe FileReaderHelper, type: :helper do
     it "should return a hash" do
       line = "1 music CD at 14.99"
       expected = {
-        quantity: "1",
+        quantity: 1,
         name: "music CD",
-        price: "14.99"
+        price: 14.99
       }
       expect(line_constructor(line)).to eq(expected)
+    end
+  end
+
+  describe "#line_item_constructor" do
+    it "should create line_item with valid data" do
+      hash = {
+        quantity: 1,
+        name: "music CD",
+        price: 14.99
+      }
+      expect(LineItem.count).to eq(0)
+      line_item_constructor(hash)
+      expect(LineItem.count).to eq(1)
+    end
+
+    it "shouldn't create line_item with invalid data" do
+      hash = {
+        quantity: 1,
+        name: "",
+        price: 14.99
+      }
+      expect(LineItem.count).to eq(0)
+      line_item_constructor(hash)
+      expect(LineItem.count).to eq(0)
     end
   end
 end

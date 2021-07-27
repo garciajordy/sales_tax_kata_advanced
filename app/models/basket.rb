@@ -1,4 +1,6 @@
 class Basket < ApplicationRecord
+  include TaxCalculatorHelper
+
   belongs_to :user
 
   has_many :line_items, dependent: :destroy
@@ -8,6 +10,6 @@ class Basket < ApplicationRecord
   end
 
   def total
-    line_items.map(&:price).sum.round(2)
+    line_items.sum(&:price).round(2)
   end
 end

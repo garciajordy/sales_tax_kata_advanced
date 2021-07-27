@@ -3,18 +3,6 @@ require 'rails_helper'
 RSpec.describe 'Baskets', type: :request do
   include Devise::Test::IntegrationHelpers
 
-  describe 'GET /new when logged in' do
-    before do
-      user = User.create(email: 'test@example.com', password: '123456')
-      sign_in(user)
-    end
-
-    it 'is status 200' do
-      get new_basket_path
-      expect(response.status).to be(200)
-    end
-  end
-
   describe 'When logged in' do
     before do
       user = User.create(email: 'test@example.com', password: '123456')
@@ -23,14 +11,17 @@ RSpec.describe 'Baskets', type: :request do
 
     describe 'GET /index' do
       it 'returns http success' do
-        get '/baskets/index'
+        get baskets_path
         expect(response).to have_http_status(:success)
       end
     end
 
     describe 'GET /show' do
       it 'returns http success' do
-        get '/baskets/show'
+        user = User.first
+        basket = Basket.create(name: 'test_basket', user_id: user.id)
+        LineItem.create(quantity: 1, name: 'imported box of chocolate', price: 14.99, basket_id: basket.id)
+        get basket_path(basket)
         expect(response).to have_http_status(:success)
       end
     end
@@ -46,7 +37,7 @@ RSpec.describe 'Baskets', type: :request do
   describe 'When not logged in' do
     describe 'GET /index' do
       it 'returns http 302' do
-        get '/baskets/index'
+        get baskets_path
         expect(response).to have_http_status(:found)
       end
 
@@ -58,7 +49,10 @@ RSpec.describe 'Baskets', type: :request do
 
     describe 'GET /show' do
       it 'returns http 302' do
-        get '/baskets/show'
+        user = User.create(email: 'test@example.com', password: '123456')
+        basket = Basket.create(name: 'test_basket', user_id: user.id)
+        LineItem.create(quantity: 1, name: 'imported box of chocolate', price: 14.99, basket_id: basket.id)
+        get basket_path(basket)
         expect(response).to have_http_status(:found)
       end
 

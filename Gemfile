@@ -35,7 +35,7 @@ group :test do
   gem 'webdrivers'
   gem 'rails-controller-testing'
 end
-
+gem 'rubocop-require_tools', '~> 0.1.2'
 gem 'rubocop-rails', require: false
 gem 'rubocop-performance', require: false
 gem 'rubocop-rspec', require: false

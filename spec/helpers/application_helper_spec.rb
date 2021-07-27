@@ -10,6 +10,10 @@ require 'rails_helper'
 #     end
 #   end
 # end
-# RSpec.describe BasketsHelper, type: :helper do
-#   pending "add some examples to (or delete) #{__FILE__}"
-# end
+RSpec.describe ApplicationHelper, type: :helper do
+  describe '#cat_image' do
+    it 'returns a url' do
+      expect(cat_image).to include 'https://cdn2.thecatapi.com/images/' && '.jpg'
+    end
+  end
+end

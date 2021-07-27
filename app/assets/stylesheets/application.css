@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+.container {
+  width: 100%;
+  display: grid;
+  gap: 5rem;
+  grid-template-columns: 1fr 1fr;
+}
+
+.container img{
+  width: 100%;
+}

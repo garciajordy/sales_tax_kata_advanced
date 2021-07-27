@@ -15,6 +15,13 @@
     <%= render "layouts/header" %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    <div class="container">
+    <%= image_tag cat_image %>
+    
+    <div>
     <%= yield %>
+    
+    </div>
+    </div>
   </body>
 </html>

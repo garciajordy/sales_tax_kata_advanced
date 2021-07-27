@@ -3,7 +3,7 @@ class BasketsController < ApplicationController
   include FileReaderHelper
 
   def index
-    @baskets = current_user.baskets
+    @baskets = current_user.baskets.order(created_at: 'DESC')
   end
 
   def show

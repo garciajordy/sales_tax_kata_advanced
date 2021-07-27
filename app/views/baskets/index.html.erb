@@ -1,6 +1,11 @@
-<%= current_user.email %>
-<ul>
+<ul class="list-group">
 <% @baskets.each do |basket| %>
-<li><%= link_to basket.name, basket %> <%= basket.created_at.strftime("%F %T") %></li>
+<%= link_to basket, class: "list-group-item list-group-item-action flex-column align-items-start" do %>
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1"><%= basket.name %></h5>
+      <small><%= time_ago_in_words(basket.created_at) %></small>
+    </div>
+ <small><%= basket.created_at.strftime("%F %T") %></small>
+<% end %>
 <% end %>
 </ul>

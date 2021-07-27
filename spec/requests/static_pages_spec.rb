@@ -10,7 +10,7 @@ RSpec.describe 'StaticPages', type: :request do
 
     it 'displays header' do
       get root_path
-      expect(response.body).to include('Welcome to the tax calculator app')
+      expect(response.body).to include('Welcome to the tax CATculator app')
     end
 
     it 'displays login and signup links when not logged in' do
@@ -37,7 +37,7 @@ RSpec.describe 'StaticPages', type: :request do
 
     it 'displays header' do
       get root_path
-      expect(response.body).to include('Welcome to the tax calculator app')
+      expect(response.body).to include('Welcome to the tax CATculator app')
     end
 
     it 'does not display login and signup links when not logged in' do

@@ -1,6 +1,11 @@
-<h1><%= @basket.name %></h1>
-<ul class="list">
-<% @basket.output.each do |line| %>
-  <li><%= line %></li>
-<% end %>
-</ul>
+<div class="card" style="width: 20rem;">
+  <div class="card-header">
+    <%= @basket.name %>
+  </div>
+  <ul class="list-group list-group-flush">
+    <% @basket.output.each do |line| %>
+      <li class="list-group-item"><%= line %></li>
+    <% end %>
+  </ul>
+  <%= link_to "All receipts", baskets_path, class: "btn btn-secondary" %>
+</div>

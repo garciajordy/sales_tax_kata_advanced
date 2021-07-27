@@ -2,10 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'upload file', type: :system do
   describe 'when logged in' do
-    include Devise::Test::IntegrationHelpers
     before do
-      user = User.create(email: 'test@example.com', password: '123456')
-      sign_in(user)
+      sign_in_user
     end
 
     it 'shows file upload' do
@@ -15,12 +13,15 @@ RSpec.describe 'upload file', type: :system do
     end
 
     it 'uploads a file successfully' do
-      visit new_basket_path
-
-      attach_file('File', "#{Rails.root}/spec/support/helpers/basket1.txt")
-      click_button 'Submit'
+      upload_file
 
       expect(page).to have_content 'Successfully uploaded the file'
+    end
+
+    it 'uploads file and show the correct output' do
+      upload_file
+
+      expect(page).to have_css 'li', text: '1 music CD: 16.49' && '1 chocolate bar: 0.85' && 'Sales Taxes: 1.50' && 'Total: 29.83'
     end
   end
 end

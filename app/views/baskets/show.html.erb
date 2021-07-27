@@ -1,5 +1,6 @@
-<h1>Baskets#show</h1>
-<p>Find me in app/views/baskets/show.html.erb</p>
+<h1><%= @basket.name %></h1>
+<ul class="list">
 <% @basket.output.each do |line| %>
-<%= line %>
+  <li><%= line %></li>
 <% end %>
+</ul>

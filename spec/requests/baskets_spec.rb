@@ -1,12 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe 'Baskets', type: :request do
-  include Devise::Test::IntegrationHelpers
-
   describe 'When logged in' do
     before do
-      user = User.create(email: 'test@example.com', password: '123456')
-      sign_in(user)
+      sign_in_user
     end
 
     describe 'GET /index' do

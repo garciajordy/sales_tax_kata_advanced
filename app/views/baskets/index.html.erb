@@ -1,2 +1,6 @@
-<h1>Baskets#index</h1>
-<p>Find me in app/views/baskets/index.html.erb</p>
+<%= current_user.email %>
+<ul>
+<% @baskets.each do |basket| %>
+<li><%= link_to basket.name, basket %> <%= basket.created_at.strftime("%F %T") %></li>
+<% end %>
+</ul>

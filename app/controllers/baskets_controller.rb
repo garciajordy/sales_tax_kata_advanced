@@ -2,7 +2,9 @@ class BasketsController < ApplicationController
   before_action :authenticate_user!
   include FileReaderHelper
 
-  def index; end
+  def index
+    @baskets = current_user.baskets
+  end
 
   def show
     @basket = Basket.find(params[:id])

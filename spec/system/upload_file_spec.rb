@@ -9,13 +9,13 @@ RSpec.describe 'upload file', type: :system do
     end
 
     it 'shows file upload' do
-      visit new_static_page_path
+      visit new_basket_path
 
       expect(page).to have_css "input[type='file']", text: ''
     end
 
     it 'uploads a file successfully' do
-      visit new_static_page_path
+      visit new_basket_path
 
       attach_file('File', "#{Rails.root}/spec/support/helpers/basket1.txt")
       click_button 'Submit'

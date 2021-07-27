@@ -1,8 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe LineItem, type: :model do
-
-  describe "relationships" do
+  describe 'relationships' do
     it { is_expected.to belong_to(:basket) }
   end
 

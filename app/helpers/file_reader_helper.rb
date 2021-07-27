@@ -1,9 +1,10 @@
 module FileReaderHelper
   def file_reader(file)
-    puts file.original_filename.split(".").first
+    basket = current_user.baskets.create(name: file.original_filename.split('.').first)
     File.readlines(file).each do |line|
-      line_item_constructor(line_constructor(line))
+      line_item_constructor(line_constructor(line), basket.id)
     end
+    basket
   end
 
   def line_constructor(line)
@@ -14,7 +15,7 @@ module FileReaderHelper
     }
   end
 
-  def line_item_constructor(hash)
-    LineItem.create(quantity: hash[:quantity], name: hash[:name], price: hash[:price])
+  def line_item_constructor(hash, id)
+    LineItem.create(quantity: hash[:quantity], name: hash[:name], price: hash[:price], basket_id: id)
   end
 end

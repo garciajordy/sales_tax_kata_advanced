@@ -27,8 +27,11 @@ RSpec.describe FileReaderHelper, type: :helper do
         name: 'music CD',
         price: 14.99
       }
+      user = User.create(email: 'user@example.com', password: '123456')
+      basket = user.baskets.create(name: 'test_basket')
+
       expect(LineItem.count).to eq(0)
-      line_item_constructor(hash)
+      line_item_constructor(hash, basket.id)
       expect(LineItem.count).to eq(1)
     end
 
@@ -38,8 +41,12 @@ RSpec.describe FileReaderHelper, type: :helper do
         name: '',
         price: 14.99
       }
+      user = User.create(email: 'user@example.com', password: '123456')
+      basket = user.baskets.create(name: 'test_basket')
+
       expect(LineItem.count).to eq(0)
-      line_item_constructor(hash)
+      line_item_constructor(hash, basket.id)
+
       expect(LineItem.count).to eq(0)
     end
   end

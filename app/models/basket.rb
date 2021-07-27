@@ -1,5 +1,6 @@
 class Basket < ApplicationRecord
   include TaxCalculatorHelper
+  validates :name, presence: true
 
   belongs_to :user
 

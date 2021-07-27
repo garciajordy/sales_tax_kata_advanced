@@ -8,6 +8,7 @@ class BasketsController < ApplicationController
 
   def show
     @basket = Basket.find(params[:id])
+    redirect_to new_user_session_path unless @basket.user == current_user
   end
 
   def new; end

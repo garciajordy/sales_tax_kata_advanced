@@ -12,7 +12,7 @@ Tax CATculator is an app where you can login/signup and upload receipts in text 
 
 ## Live Demo
 
-[Live demo](https://fathomless-bayou-10732.herokuapp.com/)
+[Live demo](https://tax-catculator.herokuapp.com/)
 
 ## Getting Started
 

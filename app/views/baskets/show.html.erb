@@ -1,12 +1,13 @@
-<div class="card" style="width: 20rem;">
-  <div class="card-header">
-    <%= @basket.name %>
+<div class="container-fluid col-6 offset-3 mt-5 d-flex justify-content-center">
+  <div class="card" style="width: 20rem;">
+    <div class="card-header">
+      <%= @basket.name %>
+    </div>
+    <ul class="list-group list-group-flush">
+      <% @basket.output.each do |line| %>
+        <li class="list-group-item"><%= line %></li>
+      <% end %>
+    </ul>
+    <%= link_to "Delete", basket_path(@basket), method: :delete,  data: {confirm: "Are you sure you want to delete #{@basket.name}?"}, class: "btn btn-danger text-center" %>
   </div>
-  <ul class="list-group list-group-flush">
-    <% @basket.output.each do |line| %>
-      <li class="list-group-item"><%= line %></li>
-    <% end %>
-  </ul>
-      <%= link_to "Delete", basket_path(@basket), method: :delete,  data: {confirm: "Are you sure you want to delete #{@basket.name}?"}, class: "btn btn-danger text-center" %>
-
 </div>

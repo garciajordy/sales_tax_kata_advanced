@@ -1,7 +1,9 @@
-<%= form_with( url: baskets_path , multipart: true) do |f| %>
-<div class="d-flex flex-column">
-  <%= f.label :file, "Upload a receipt!" %>
-  <%= f.file_field :file, class: "my-4" %>
-  <%= f.submit "Submit", class: "btn btn-primary" %>
-  </div>
-<% end %>
+<div class="container-fluid col-6 offset-3 mt-5">
+  <%= form_with( url: baskets_path , multipart: true) do |f| %>
+    <div class="d-flex flex-column">
+      <%= f.label :file, "Upload a receipt!" %>
+      <%= f.file_field :file, class: "my-4" %>
+      <%= f.submit "Submit", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

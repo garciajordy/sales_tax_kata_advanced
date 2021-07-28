@@ -30,6 +30,7 @@ end
 group :test do
   gem 'shoulda-matchers', '~> 5.0'
   gem 'capybara'
+  gem 'simplecov', require: false
   gem 'selenium-webdriver'
   gem 'database_cleaner-active_record'
   gem 'webdrivers'

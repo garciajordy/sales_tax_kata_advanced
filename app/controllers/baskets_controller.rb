@@ -18,4 +18,11 @@ class BasketsController < ApplicationController
     @basket = file_reader(params[:file])
     redirect_to @basket
   end
+
+  def destroy
+    @basket = Basket.find(params[:id])
+    @basket.destroy
+    flash[:success] = 'You have successfully destroyed the receipt.'
+    redirect_to baskets_path
+  end
 end

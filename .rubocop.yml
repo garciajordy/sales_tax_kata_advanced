@@ -1,0 +1,72 @@
+require:
+  - rubocop-rails
+  - rubocop-performance
+  - rubocop-rspec
+
+AllCops:
+  NewCops: enable
+  Include:
+    - '**/*.rb'
+    - '**/Rakefile'
+    - '**/config.ru'
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'bin/**/*'
+    - 'log/**/*'
+    - 'vendor/**/*'
+    - 'node_modules/**/*'
+  TargetRubyVersion: 2.6.2
+
+Layout/LineLength:
+  Max: 200
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 80
+
+Metrics/BlockLength:
+  IgnoredMethods: ['describe', 'context']
+  Max: 35
+
+Metrics/ClassLength:
+  Max: 200
+
+Metrics/CyclomaticComplexity:
+  Max: 15
+
+Metrics/MethodLength:
+  Max: 40
+
+Metrics/PerceivedComplexity:
+  Max: 9
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/SignalException:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/TernaryParentheses:
+  EnforcedStyle: require_parentheses_when_complex
+
+RSpec/ExampleLength:
+  Max: 30
+
+RSpec/NestedGroups:
+  Max: 4
+
+RSpec/MultipleExpectations:
+  Max: 2
+
+RSpec/MultipleMemoizedHelpers:
+  Max: 11
+
+Rails/FilePath:
+  Enabled: false

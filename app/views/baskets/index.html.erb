@@ -1,0 +1,9 @@
+<div class="container-fluid col-6 offset-3 mt-5">
+  <ul class="list-group">
+    <% if @baskets.any? %>
+      <%= render @baskets %>
+    <% else %>
+      <h1>You have currently no receipts.</h1>
+    <% end %>
+  </ul>
+</div>

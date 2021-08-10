@@ -1,0 +1,11 @@
+      
+<div class="d-flex mb-3">
+  <%= link_to basket, class: "list-group-item list-group-item-action flex-column align-items-start" do %>
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1"><%= basket.name %></h5>
+      <small><%= time_ago_in_words(basket.created_at) %></small>
+    </div>
+    <small><%= basket.created_at.strftime("%F %T") %></small>
+  <% end %>
+  <%= link_to "Delete", basket_path(basket), method: :delete,  data: {confirm: "Are you sure you want to delete #{basket.name}?"}, class: "btn btn-danger d-flex align-items-center" %>
+</div>
